@@ -8,7 +8,7 @@ export const AppContextProvider = (props) => {
 
     axios.defaults.withCredentials = true
 
-    const backendURL = import.meta.env.VITE_BACKEND_URL
+    const backendURL = import.meta.env.VITE_BACKEND_URL     // Syntax to write environment variables in frontend.
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [userData, setUserData] = useState(false)
 

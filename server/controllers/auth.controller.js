@@ -159,8 +159,6 @@ export const logout = async (req, res) => {
 
 export const sendVerifyOTP = async (req, res) => {
 	try {
-		// Didn't understand the following line. Why are we getting userId from req.body?
-		// We are not getting userId from req.body by default. We are adding it there using middleware.
 		const {userId} = req.body;
 		const user = await User.findById(userId)
 
@@ -192,7 +190,6 @@ export const sendVerifyOTP = async (req, res) => {
 export const verifyEmail = async (req, res) => {
 	const { userId, otp } = req.body
 
-	//Review the following if condition:
 	if(!userId || !otp){
 		return res.json({ success: false, message: 'Missing details.' })
 	}
@@ -223,7 +220,6 @@ export const verifyEmail = async (req, res) => {
 	}
 }
 
-//Don't understand the requirement of following fucntion:
 export const isAuthenticated = async (req, res) => {
 	try {
 		return res.json({ success: true })

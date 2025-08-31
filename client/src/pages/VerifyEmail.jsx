@@ -61,12 +61,13 @@ function VerifyEmail() {
   }
 
   useEffect(() => {
-    isLoggedIn && userData && userData.isAccountVerified && navigate('/')
+    if(isLoggedIn){
+      userData && userData.isAccountVerified && navigate('/')
+    }
+    else{
+      navigate('/login')
+    }
   }, [isLoggedIn, userData])
-
-  useEffect(() => {
-    !isLoggedIn && navigate('/login')
-  }, [isLoggedIn])
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#2c0a0d] via-[#3a0e22] to-[#0d0a1a]">

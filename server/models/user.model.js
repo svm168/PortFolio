@@ -5,13 +5,13 @@ const userSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 
-	verifyOTP: { type: String, default: '' }, /////////
-	verifyOTPExpireAt: { type: Number, default: 0 }, ////////
+	verifyOTP: { type: String, default: '' },
+	verifyOTPExpireAt: { type: Number, default: 0 },
 
 	isAccountVerified: { type: Boolean, default: false },
 
-	resetOTP: { type: String, default: '' }, //////
-	resetOPTExpireAt: { type: Number, default: 0 }, //////
+	resetOTP: { type: String, default: '' },
+	resetOPTExpireAt: { type: Number, default: 0 },
 })
 
 const User = mongoose.models.User || mongoose.model('User', userSchema)

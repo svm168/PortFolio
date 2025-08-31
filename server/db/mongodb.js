@@ -7,11 +7,11 @@ const connectDB = async () => {
 			`${process.env.MONGODB_URI}/${DB_NAME}`
 		)
 		console.log(
-			`MongoDB connected (try method in mongodb.js). DB Host: ${connectionInstance.connection.host}`
-		)
+			`MongoDB connected. DB Host: ${connectionInstance.connection.host}`
+		)			// Connection host doesn't carry any sensitive info, its just the DNS.
 	} catch (error) {
 		console.log(
-			'MongoDB connection error (catch method in mongodb.js). Error code: ',
+			'MongoDB connection error. Error code: ',
 			error
 		)
 		process.exit(1)

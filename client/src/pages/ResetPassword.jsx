@@ -58,8 +58,8 @@ function ResetPassword() {
     }
   }
 
-  const onSubmitOtp = async (event) => {  {/**************************************** OTP is not matched. */}
-    event.preventDefault()
+  const onSubmitOtp = async (event) => {    // OTP is not checked when otp is submitted.
+    event.preventDefault()                  // OTP is checked when new password is submitted.
     const otpArray = inputRefs.current.map(event => event.value)
     setOtp(otpArray.join(''))
     setIsOtpSubmitted(true)
@@ -67,7 +67,7 @@ function ResetPassword() {
 
   const onSubmitNewPassword = async (event) => {
     event.preventDefault()
-    try {
+    try {                                       // OTP is checked here.
       const { data } = await axios.post(backendURL + '/api/auth/reset-password', {email, otp, newPassword})
       if(data.success){
         toast.success(data.message)

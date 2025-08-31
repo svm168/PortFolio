@@ -10,7 +10,7 @@ const app = express()
 const port = process.env.PORT || 3000
 connectDB()
 
-const allowedOrigins = ['http://localhost:5173']
+const allowedOrigins = process.env.ALLOWED_ORIGINS
 
 app.use(express.json())
 app.use(cookieParser())
